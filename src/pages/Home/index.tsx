@@ -1,10 +1,10 @@
 import './index.css'
-import { SideBar } from "../../components/SideBar";
+import { SideBarComponent } from "../../components/SideBar";
 
 export function HomePage() {
   return (
     <>
-      <SideBar />
+      <SideBarComponent />
     </>
   );
 }
