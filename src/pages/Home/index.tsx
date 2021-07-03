@@ -1,6 +1,5 @@
 import './index.css'
 import { SideBarComponent } from "../../components/SideBar";
-import socketIOClient from "socket.io-client";
 import { useEffect, useState } from 'react';
 import { ModalNameComponent } from '../../components/ModalName';
 import { User } from '../../contexts/UserContext';
@@ -11,8 +10,7 @@ export function HomePage() {
 
   const [isOpen, setIsOpen] = useState(true)
   const [username, setUsername] = useState("")
-  const [socket] = useState(socketIOClient("http://192.168.1.86:3500"))
-  const { updateUsers, userTarget } = useUser()
+  const { socket, updateUsers, userTarget } = useUser()
 
   useEffect(() => {
 
@@ -29,6 +27,7 @@ export function HomePage() {
       setIsOpen(false)
     }
   }
+  
 
   return (
     <>

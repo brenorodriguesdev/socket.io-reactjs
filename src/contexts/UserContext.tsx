@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
+import socketIOClient, { Socket } from "socket.io-client";
 
 export type User = {
     id: string
@@ -10,6 +11,7 @@ export type UserContextProps = {
     updateUsers: (users: User[]) => void
     userTarget: User | undefined
     updateUserTarget: (user: User) => void
+    socket: Socket
 }
 const UserContext = createContext<UserContextProps>({} as UserContextProps)
 
@@ -21,6 +23,7 @@ function UserProvider({ children }: UserProviderProps) {
 
     const [users, setUsers] = useState<User[]>([])
     const [userTarget, setUserTarget] = useState<User | undefined>()
+    const [socket] = useState(socketIOClient("http://192.168.1.86:3500"))
 
     function updateUsers(users: User[]): void {
         setUsers(users)
@@ -32,7 +35,7 @@ function UserProvider({ children }: UserProviderProps) {
 
 
     return (
-        <UserContext.Provider value={{ users, updateUsers, userTarget, updateUserTarget }}>
+        <UserContext.Provider value={{ socket, users, updateUsers, userTarget, updateUserTarget }}>
             {children}
         </UserContext.Provider>
     )

@@ -3,6 +3,7 @@ import { UserContext } from '../../contexts/UserContext'
 import { PlayerItemComponent } from '../PlayerItem'
 import './index.css'
 
+
 export function SideBarComponent() {
     const { users } = useContext(UserContext)
 
