@@ -1,0 +1,13 @@
+.containerHeader {
+    position: absolute;
+    width: 100vw;
+    height: 10vh;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #E0E0E0;
+    align-items: center;
+    display: flex;
+}
+
+.textHeader {
+    margin-left: 12vw;
+}

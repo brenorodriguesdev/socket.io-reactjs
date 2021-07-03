@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { ModalNameComponent } from '../../components/ModalName';
 import { User } from '../../contexts/UserContext';
 import { useUser } from '../../hooks/useUser';
+import { HeaderComponent } from '../../components/Header';
 
 export function HomePage() {
 
@@ -31,6 +32,7 @@ export function HomePage() {
 
   return (
     <>
+      { isOpen || <HeaderComponent /> }
       <SideBarComponent />
       {isOpen && <ModalNameComponent title="Digite seu apelido">
         <input type="text" onChange={(event) => { setUsername(event.target.value) }} style={{ backgroundColor: "transparent", border: "1px solid", fontSize: "14px", borderTopColor: "transparent", borderRightColor: "transparent", borderLeftColor: "transparent", width: "20rem", borderBottomColor: "#555", textAlign: "center" }} />
