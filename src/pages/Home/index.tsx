@@ -12,7 +12,7 @@ export function HomePage() {
   const [isOpen, setIsOpen] = useState(true)
   const [username, setUsername] = useState("")
   const [socket] = useState(socketIOClient("http://192.168.1.86:3500"))
-  const { updateUsers } = useUser()
+  const { updateUsers, userTarget } = useUser()
 
   useEffect(() => {
 
@@ -32,7 +32,7 @@ export function HomePage() {
 
   return (
     <>
-      { isOpen || <HeaderComponent /> }
+      {userTarget && <HeaderComponent username={userTarget.username} />}
       <SideBarComponent />
       {isOpen && <ModalNameComponent title="Digite seu apelido">
         <input type="text" onChange={(event) => { setUsername(event.target.value) }} style={{ backgroundColor: "transparent", border: "1px solid", fontSize: "14px", borderTopColor: "transparent", borderRightColor: "transparent", borderLeftColor: "transparent", width: "20rem", borderBottomColor: "#555", textAlign: "center" }} />

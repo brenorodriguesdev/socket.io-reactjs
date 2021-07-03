@@ -8,7 +8,7 @@ export function SideBarComponent() {
 
     return (
         <aside className="main">
-            {users.map(user => <PlayerItemComponent username={user.username} key={user.id} />)}
+            {users.map(user => <PlayerItemComponent user={user} key={user.id} />)}
         </aside>
     )
 }
