@@ -1,0 +1,19 @@
+.modalMain {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #808080;
+}
+
+.modalContainer {
+    display: flex;
+    width: 30rem;
+    height: 10rem;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    flex-direction: column; 
+   justify-content: space-around;
+    align-items: center;
+}

@@ -1,12 +1,14 @@
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 import { PlayerItemComponent } from '../PlayerItem'
 import './index.css'
 
 export function SideBarComponent() {
+    const { users } = useContext(UserContext)
+
     return (
         <aside className="main">
-            <PlayerItemComponent username="Player 1" />
-            <PlayerItemComponent username="Player 2" />
-            <PlayerItemComponent username="Player 3" />
+            {users.map(user => <PlayerItemComponent username={user.username} key={user.id} />)}
         </aside>
     )
 }
